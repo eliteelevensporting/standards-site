@@ -48,7 +48,7 @@
     }
 
     .panel {
-      background: rgba(255, 255, 255, 0.94);
+      background: #fff;
       border-radius: 18px;
       box-shadow: 0 16px 40px rgba(20, 24, 28, 0.08);
       padding: 22px 26px;
@@ -137,7 +137,7 @@
       font-family: "Open Sans", Arial, Helvetica, sans-serif;
       font-size: 18px;
       font-weight: 300;
-      margin: 22px 0;
+      margin: 22px 0 0;
       padding: 10px 14px;
       width: 100%;
     }
@@ -145,7 +145,7 @@
     .divider {
       background: #e4e4e4;
       height: 1px;
-      margin: 0 0 20px;
+      margin: 20px 0;
       width: 100%;
     }
 
@@ -169,11 +169,6 @@
 
     .swatch-dark {
       box-shadow: none;
-    }
-
-    .swatch-active {
-      outline: 3px solid rgba(47, 125, 246, 0.18);
-      outline-offset: 3px;
     }
 
     .visually-hidden {
@@ -367,12 +362,6 @@
       return null;
     }
 
-    function updateSwatches(currentHex) {
-      swatches.forEach((swatch) => {
-        swatch.classList.toggle("swatch-active", swatch.dataset.colour === currentHex);
-      });
-    }
-
     function updateFromRgb(rgb, syncSliders) {
       const colourHex = rgbToHex(rgb);
       const blackContrast = contrastRatio(black, rgb);
@@ -393,7 +382,6 @@
       hueValue.value = `${hue.value}°`;
       saturationValue.value = `${saturation.value}%`;
       brightnessValue.value = `${brightness.value}%`;
-      updateSwatches(colourHex);
     }
 
     function updateFromSliders() {
